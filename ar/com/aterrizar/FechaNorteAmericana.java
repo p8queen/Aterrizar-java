@@ -4,18 +4,19 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class FechaIso8601 extends Fecha implements IFecha {
-	
+
+public class FechaNorteAmericana extends Fecha implements IFecha {
+
 	String formatoDeStr = "yyyy-MM-dd";
 	
 	@Override
 	public Date validar(String fecha) {
-
+		
 		SimpleDateFormat formatoDelTexto = new SimpleDateFormat(formatoDeStr);
-		Date fecha2 = null;
+		Date fechaConFormato = null;
 		try {
 
-			fecha2 = formatoDelTexto.parse(fecha);
+			fechaConFormato = formatoDelTexto.parse(fecha);
 
 		} catch (ParseException ex) {
 
@@ -23,7 +24,8 @@ public class FechaIso8601 extends Fecha implements IFecha {
 
 		}
 
-		return fecha2;
+		return fechaConFormato;
+
 	}
 
 	public void setFecha(String fecha) {
@@ -35,4 +37,5 @@ public class FechaIso8601 extends Fecha implements IFecha {
 		SimpleDateFormat formatoDeFecha = new SimpleDateFormat(formatoDeStr);
 		return (formatoDeFecha.format(date));
 	}
+
 }
